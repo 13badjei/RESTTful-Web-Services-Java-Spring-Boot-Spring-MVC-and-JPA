@@ -2,20 +2,18 @@ package com.appsdeveloperblog.app.ws.shared.dto;
 
 import java.io.Serializable;
 
-import antlr.collections.List;
-
 public class UserDto implements Serializable {
 	
 	private static final long serialVersionUID = 6835192601898364280L;
 	private long id;
-	private String userID;
+	private String userId;
 	private String firstName;
 	private String lastName;
 	private String email;
 	private String password;
 	private String encryptedPassword;
 	private String emailVerificationToken;
-	private Boolean emailVerificationStatus = false;
+	private boolean emailVerificationStatus;
 	
 	public long getId() {
 		return id;
@@ -23,11 +21,11 @@ public class UserDto implements Serializable {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getUserID() {
-		return userID;
+	public String getUserId() {
+		return userId;
 	}
-	public void setUserID(String userID) {
-		this.userID = userID;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 	public String getFirstName() {
 		return firstName;
@@ -65,11 +63,12 @@ public class UserDto implements Serializable {
 	public void setEmailVerificationToken(String emailVerificationToken) {
 		this.emailVerificationToken = emailVerificationToken;
 	}
-	public Boolean getEmailVerificationStatus() {
+	public boolean isEmailVerificationStatus() {
 		return emailVerificationStatus;
 	}
-	public void setEmailVerificationStatus(Boolean emailVerificationStatus) {
+	public void setEmailVerificationStatus(boolean emailVerificationStatus) {
 		this.emailVerificationStatus = emailVerificationStatus;
 	}
+	
 	
 }
