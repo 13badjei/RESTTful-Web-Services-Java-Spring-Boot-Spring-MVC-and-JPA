@@ -16,7 +16,7 @@ import com.appsdeveloperblog.app.ws.ui.model.request.UserDetailsRequestModel;
 import com.appsdeveloperblog.app.ws.ui.model.response.UserRest;
 
 @RestController
-@RequestMapping("users") // http://localhost:8080/users
+@RequestMapping("users") // http:localhost:8000/users
 public class UserController {
 
 	@Autowired
@@ -24,7 +24,7 @@ public class UserController {
 	
 	@GetMapping
 	public String getUser() {
-		return "get user was called";
+		return "get user was called";		
 	}
 	
 	@PostMapping
@@ -35,18 +35,18 @@ public class UserController {
 		BeanUtils.copyProperties(userDetails, userDto);
 		
 		UserDto createdUser = userService.createUser(userDto);
-		BeanUtils.copyProperties(createdUser, userDto);
+		BeanUtils.copyProperties(createdUser, returnValue);
 		
-		return returnValue;
+		return returnValue;	
 	}
 	
 	@PutMapping
 	public String updateUser() {
-		return "update user was called";
+		return "update user was called";		
 	}
 	
 	@DeleteMapping
 	public String deleteUser() {
-		return "delete user was called";
+		return "delete user was called";		
 	}
 }

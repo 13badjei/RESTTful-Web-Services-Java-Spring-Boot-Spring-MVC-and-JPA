@@ -10,8 +10,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import com.appsdeveloperblog.app.ws.service.UserService;
 
 @EnableWebSecurity
-public class WebSecurity extends WebSecurityConfigurerAdapter{
-
+public class WebSecurity extends WebSecurityConfigurerAdapter {
+	
 	private final UserService userDetailsService;
 	private final BCryptPasswordEncoder bCryptPasswordEncoder;
 	
@@ -25,11 +25,11 @@ public class WebSecurity extends WebSecurityConfigurerAdapter{
 		http.csrf().disable().authorizeRequests()
 		.antMatchers(HttpMethod.POST, SecurityConstants.SIGN_UP_URL)
 		.permitAll()
-		.anyRequest().authenticated().and().addFilter(new AuthenticationFilter(authenticationManager()));
+		.anyRequest().authenticated();
 	}
 	
 	@Override
 	public void configure(AuthenticationManagerBuilder auth) throws Exception{
-		auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder);
+		auth.userDetailsService(userDetailsService()).passwordEncoder(bCryptPasswordEncoder);
 	}
 }
